@@ -18,13 +18,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    Pažymių knygutė
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -73,7 +74,23 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-6 col-md-3 col-lg-2">
+                        <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+                            <h4 style="margin-bottom: 15px; border-bottom: 1px solid green">Valdymo panele</h4>
+                            <a style="margin:10px auto" class="btn btn-primary" href="{{route('grades.index')}}">Apžvalga</a>
+                            <a style="margin:10px auto" class="btn btn-primary" href="{{route('students.index')}}">Studentai</a>
+                            <a style="margin:10px auto" class="btn btn-primary" href="{{route('lectures.index')}}">Paskaitos</a>
+                            <a style="margin:10px auto" class="btn btn-primary" href="{{route('grades.create')}}">Rašyti pažymį</a>
+                        </div>
+                    </div>
+                    <div class="col-10 col-md-9 col-lg-10">
+                        @yield('content')
+                    </div>
+                </div>
+
+            </div>
         </main>
     </div>
 </body>

@@ -20,3 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('students', 'StudentsController');
+
+Route::resource('lectures', 'LecturesController');
+
+Route::resource('grades', 'GradesController');
+
+Route::get('/select', 'GradesController@select')->name('grades.select');
