@@ -73,6 +73,7 @@
             </div>
         </nav>
 
+        @auth
         <main class="py-4">
             <div class="container">
                 <div class="row justify-content-center">
@@ -92,6 +93,11 @@
 
             </div>
         </main>
+        @else
+        <main>
+            @yield('content')
+        </main>
+        @endauth
     </div>
 </body>
 </html>

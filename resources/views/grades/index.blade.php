@@ -19,7 +19,6 @@
                             @foreach($lecture->grades as $grade)
                                 @if($student->id == $grade->student_id)
                                     <span>{{$grade->grade}}</span>
-                                    <span class="info">afdsadsf</span>
                                 @endif
                             @endforeach
                         </th>
