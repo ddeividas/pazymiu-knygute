@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'StudentsController@main_students')->name('main.students');
+
+Route::POST('/student/{id}', 'StudentsController@student_show')->name('show.student');
 
 Auth::routes();
 

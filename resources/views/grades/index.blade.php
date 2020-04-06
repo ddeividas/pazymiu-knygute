@@ -6,7 +6,7 @@
             <tr>
                 <th>Studentas</th>
                 @foreach($lectures as $lecture)
-                    <th>{{$lecture->name}}</th>
+                    <th style="text-align: center">{{$lecture->name}}</th>
                 @endforeach
             </tr>
         </thead>
@@ -15,10 +15,10 @@
                 <tr>
                     <th>{{$student->name}}</th>
                     @foreach($lectures as $lecture)
-                        <th>
+                        <th style="text-align: center">
                             @foreach($lecture->grades as $grade)
                                 @if($student->id == $grade->student_id)
-                                    <span>{{$grade->grade}}</span>
+                                    <span style="padding: 5px; background-color: lightyellow">{{$grade->grade}}</span>
                                 @endif
                             @endforeach
                         </th>

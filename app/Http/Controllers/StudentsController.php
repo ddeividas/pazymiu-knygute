@@ -10,7 +10,7 @@ class StudentsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('main_students');
     }
     /**
      * Display a listing of the resource.
@@ -23,6 +23,19 @@ class StudentsController extends Controller
         $students = Student::orderBy('surname', 'asc')->get();
 
         return view('students.index', compact('students'));
+    }
+
+    public function main_students(){
+        $students = Student::all();
+
+        return view ('main', compact('students'));
+    }
+
+    public function student_show($id){
+        $students = Student::all();
+        $student = findOrfail($id);
+
+        return view ('main', compact(['students', 'student']));
     }
 
     /**
