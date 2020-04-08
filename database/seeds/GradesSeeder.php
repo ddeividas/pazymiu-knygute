@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Lecture;
 
-class LecturesSeeder extends Seeder
+class GradesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +11,6 @@ class LecturesSeeder extends Seeder
      */
     public function run()
     {
-
-
+        factory('App\Grade', 15)->create();
     }
 }

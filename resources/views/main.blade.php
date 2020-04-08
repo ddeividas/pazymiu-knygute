@@ -8,17 +8,13 @@
             </div>
             <div class="col-6 mt-3 text-center">
                 <div class="input-group mb-3">
-                    <form method="POST" action="{{route('show.student', $student->id)}}">
-                        <select class="custom-select">
+                        <select  id="studentai" class="custom-select" onchange="top.location.href = this.options[this.selectedIndex].value">
                             <option selected disabled>Pasirinkite vardą</option>
                             @foreach($students as $student)
-                                <option>{{$student->name . " " . "$student->surname"}}</option>
+                                <option value="{{ route("show.student", $student->id) }}">{{$student->name . " " . "$student->surname"}}</option>
                             @endforeach
                         </select>
-                        <input type="submit" value="Rodyti">
-                    </form>
                 </div>
-
             </div>
         </div>
     </div>

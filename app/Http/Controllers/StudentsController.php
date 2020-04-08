@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Lecture;
 use App\Student;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,7 @@ class StudentsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except('main_students');
+        $this->middleware('auth')->except('main_students', 'student_show');
     }
     /**
      * Display a listing of the resource.
@@ -33,9 +34,10 @@ class StudentsController extends Controller
 
     public function student_show($id){
         $students = Student::all();
-        $student = findOrfail($id);
+        $student = Student::findOrFail($id);
+        $lectures = Lecture::all();
 
-        return view ('main', compact(['students', 'student']));
+        return view ('show_student', compact(['students', 'student', 'lectures']));
     }
 
     /**

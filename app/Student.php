@@ -12,4 +12,8 @@ class Student extends Model
         return $this->hasMany('App\Grade', 'student_id', 'id');
     }
 
+//    public function lectures(){
+//        return $this->hasMany('App\Lecture', 'lectures_id', 'id');
+//    }
+
 }
